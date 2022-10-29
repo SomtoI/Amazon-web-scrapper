@@ -31,8 +31,8 @@ async function scrape(){
     if(priceNum < 50){
         client.messages.create({
             body: `The price of ${product.name} went below ${price}. Purchase it at ${product.link}`,
-            from: "+12058276406",
-            to: '+14313343698'
+            from: process.env.TWILIO_NUMBER,
+            to: process.env.PHONE_NUMBER
         }).then(()=> clearInterval(handle));
     }
 }
